@@ -1,5 +1,4 @@
 import pyodbc
-from pymongo import MongoClient
 
 def connect_to_database_sql():
     # Chuỗi kết nối SQL Server
