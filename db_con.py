@@ -51,6 +51,6 @@ def get_data(query):
 
 # Gọi hàm để lấy thông tin từ bảng users
 get_data("SELECT * FROM users; ")
-get_data("SELECT * FROM users WHERE rfid_id = 'SV001';")
+
 
 
