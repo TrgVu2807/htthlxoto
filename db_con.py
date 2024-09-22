@@ -7,10 +7,13 @@ def connect_to_database_sql():
     database = 'htthlxoto'
     username = 'database'
     password = '28072002Vu@'
-    driver= '{ODBC Driver 17 for SQL Server}'
-
+    # driver= '{ODBC Driver 17 for SQL Server}'
+    driver= 'FreeTDS'
     # Tạo chuỗi kết nối
-    connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
+    connection_string = f'DRIVER={{{driver}}};SERVER={server};PORT=1433;UID={username};PWD={password};DATABASE={database};TDS_Version=7.4;Encrypt=yes;TrustServerCertificate=no;'
+   
+    # Tạo chuỗi kết nối
+    # connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
     # Kết nối đến cơ sở dữ liệu
     conn = pyodbc.connect(connection_string)
@@ -51,6 +54,6 @@ def get_data(query):
 
 # Gọi hàm để lấy thông tin từ bảng users
 get_data("SELECT * FROM users; ")
-
+get_data("SELECT * FROM users WHERE rfid_id = 'SV001';")
 
 
